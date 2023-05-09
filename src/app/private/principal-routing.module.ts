@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ShipsComponent } from '../components/ships/ships.component';
+import { ShipsComponent } from './views/ships/ships.component';
 import { PageOneComponent } from './views/page-one/page-one.component';
 import { PageTwoComponent } from './views/page-two/page-two.component';
 import { PrincipalComponent } from './views/principal/principal.component';

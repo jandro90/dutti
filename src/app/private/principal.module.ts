@@ -5,8 +5,8 @@ import { PrincipalComponentsRoutingModule } from './principal-routing.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 // Components
 import { ShipsComponent } from '../components/ships/ships.component';
-import { PageOneComponent } from '../components/page-one/page-one.component';
-import { PageTwoComponent } from '../components/page-two/page-two.component';
+import { PageOneComponent } from './views/page-one/page-one.component';
+import { PageTwoComponent } from './views/page-two/page-two.component';
 import { ShipsDetailsComponent } from '../components/ships/ships-details/ships-details.component';
 
 @NgModule({

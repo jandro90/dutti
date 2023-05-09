@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/interfaces/user';
 import { LoginService } from 'src/app/services/login/login.service';
 
@@ -10,7 +11,7 @@ import { LoginService } from 'src/app/services/login/login.service';
 export class PrincipalComponent implements OnInit {
   currentUser: User;
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
     this.currentUser = this.loginService.currentUser;
@@ -18,6 +19,7 @@ export class PrincipalComponent implements OnInit {
 
   logout() {
     this.loginService.logout();
+    this.router.navigate(['']);
   }
 
 }

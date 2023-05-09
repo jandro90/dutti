@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login/login.service';
+import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-login',
@@ -27,19 +28,11 @@ export class LoginComponent implements OnInit {
       password: [ '', [Validators.required, Validators.minLength(6)]]
     })
   }
+  
   loginUser() {
     if (this.loginForm.invalid) { return }
-    // TODO : Falta integrar el servicio para autentificar al usuario
-    // JSON simulando usuarios
-    // var userLogin = this.loginForm.value.username;
-    // var filterJson = this.users.filter(function (user) { return user.first_name === userLogin  });
-    // if (filterJson.length > 0) {
-    //   this.router.navigate(['/principal/ships'])
-    // } else {
-    //   this.unregistered = true;
-    // }
-
-    this.loginService.login(this.loginForm.value.username);
+    const loggedUser: User = this.loginService.login(this.loginForm.value.username);
+    loggedUser ? this.router.navigate(['/principal/ships']) : this.unregistered = true;
   }
 }
 

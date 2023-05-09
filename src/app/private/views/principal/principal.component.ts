@@ -16,4 +16,8 @@ export class PrincipalComponent implements OnInit {
     this.currentUser = this.loginService.currentUser;
   }
 
+  logout() {
+    this.loginService.logout();
+  }
+
 }

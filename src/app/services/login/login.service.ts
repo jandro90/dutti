@@ -26,6 +26,10 @@ export class LoginService {
         this.setUserInStorage(user);
     }
 
+    logout() {
+        localStorage.removeItem('user');
+    }
+
     private setUserInStorage(user: User) {
         if (!user) return;
         localStorage.setItem('user', JSON.stringify(user));

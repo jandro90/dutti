@@ -8,6 +8,10 @@ import usersList from 'src/assets/json/users.json';
 export class LoginService {
     private users: User[] = usersList;
 
+    get currentUser(): User {
+        return JSON.parse(localStorage.getItem('user'));
+    }
+
     login(userData: string): User | undefined {
         if (!userData) return;
         const user: User | undefined = this.users.find(({ first_name, username }: User) => (first_name === userData) || username === userData);

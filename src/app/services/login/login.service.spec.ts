@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
 import { LoginService } from './login.service';
-import usersList from 'src/assets/json/users.json';
 
 describe('ShipsService', () => {
   let service: LoginService;

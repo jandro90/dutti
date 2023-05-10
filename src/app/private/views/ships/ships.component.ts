@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Ships } from 'src/app/interfaces/ships.interface';
 import { ShipsService } from 'src/app/services/ships/ships.service';
 
 @Component({
@@ -8,14 +10,11 @@ import { ShipsService } from 'src/app/services/ships/ships.service';
 })
 export class ShipsComponent implements OnInit {
 
-  public dataList: any = [];
+  public dataList: Observable<Ships[]>
 
   constructor( private shipsService: ShipsService) {}
 
   ngOnInit(): void {
-    this.shipsService.getShips().subscribe((ships) => {
-      this.dataList = ships;
-      console.log('SHIPS -->', this.dataList)
-    })
+    this.dataList = this.shipsService.getShips();
   }
 }

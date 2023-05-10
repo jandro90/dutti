@@ -35,4 +35,4 @@ Navigate to `http://localhost:4200/`.
 
 # Notas del desarrollador:
 
-
+Creación de todos los Puntos

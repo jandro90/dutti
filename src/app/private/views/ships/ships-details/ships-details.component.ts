@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { APP_STORE } from 'src/app/ngrx/store';
 declare var $: any;
 
 
@@ -9,7 +11,7 @@ declare var $: any;
 })
 export class ShipsDetailsComponent implements OnInit {
 
-  @Input() dataList: any;
+  dataList;
   config: any;
   shipId: string = '';
   shipImgUrlBase: string = 'https://starwars-visualguide.com/assets/img/starships/';
@@ -19,10 +21,10 @@ export class ShipsDetailsComponent implements OnInit {
   modelDetails: string = '';
   starship_class: string = '';
 
-  constructor() { 
-  }
+  constructor(private store: Store) {}
   
   ngOnInit(): void {
+    this.dataList = this.store.select((state: APP_STORE) => state.ships)
       this.config = {
         itemsPerPage: 5,
         currentPage: 1,

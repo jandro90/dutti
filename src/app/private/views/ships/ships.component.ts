@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Ships } from 'src/app/interfaces/ships.interface';
-import { ShipsService } from 'src/app/services/ships/ships.service';
+import { Store } from '@ngrx/store';
+import { LOAD_SHIPS } from 'src/app/ngrx/actions/ships.actions';
+
 
 @Component({
   selector: 'app-ships',
@@ -10,11 +10,9 @@ import { ShipsService } from 'src/app/services/ships/ships.service';
 })
 export class ShipsComponent implements OnInit {
 
-  public dataList: Observable<Ships[]>
-
-  constructor( private shipsService: ShipsService) {}
+  constructor(private store: Store<any>) {}
 
   ngOnInit(): void {
-    this.dataList = this.shipsService.getShips();
+    this.store.dispatch({type: LOAD_SHIPS})
   }
 }

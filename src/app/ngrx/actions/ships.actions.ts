@@ -1,3 +1,10 @@
-import { createAction } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 
-export const ADD_SHIPS = createAction('[SHIPS] ADD_SHIPS');
+import { Ships } from 'src/app/interfaces/ships.interface';
+
+export const LOAD_SHIPS = '[LOAD_SHIPS] SHIPS';
+
+export const ADD_SHIPS =  createAction(
+    '[ADD_SHIPS] SHIPS',
+    props<{ payload: Ships[] }>()
+  );

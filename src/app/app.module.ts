@@ -12,6 +12,8 @@ import { APP_STORE } from './ngrx/store';
 // Components
 import { AppComponent } from './app.component';
 import { PrincipalComponent } from './private/views/principal/principal.component';
+import { EffectsModule } from '@ngrx/effects';
+import { ShipsEffects } from './ngrx/effects/ships.effect';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { PrincipalComponent } from './private/views/principal/principal.componen
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
-    })
+    }),
+    EffectsModule.forRoot([ShipsEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
